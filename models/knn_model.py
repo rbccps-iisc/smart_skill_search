@@ -22,7 +22,12 @@ class KNNRecommender:
 
     def get_batch_recommendation(self, X):
         batch = []
-        idx = 0
         for row in tqdm(X.iterrows(), total=len(X)):
             batch.append(self.recommend(row[1]))
         return np.array(batch)
+
+"""
+TODO
+----
+If there are repeating skills, reduce the threshold for that particular skill in the knn model
+"""
