@@ -16,9 +16,12 @@ class KNNRecommender:
 
     def recommend(self, row):
         dist, indices = self.model_knn.kneighbors([row])
-        rec_matrix = np.array([self.X.iloc[idx] for idx in indices])
+        rec_matrix = np.array([self.X.iloc[idx] for idx in indices]).squeeze()
+        row = np.array(row).reshape(1, -1).astype(float)
+        rec_matrix = np.concatenate([rec_matrix, row*self.threshold], axis=0)
+        
         recommendation = 1 * \
-            (rec_matrix.squeeze().sum(axis=0) > self.threshold)
+            (rec_matrix.squeeze().sum(axis=0) >= self.threshold-1)
         return recommendation
 
     def get_batch_recommendation(self, X):

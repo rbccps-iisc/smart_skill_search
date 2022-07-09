@@ -30,14 +30,17 @@ batch_mtx = model.get_batch_recommendation(input_csv)
 
 def generate_csv(mtx, input_df, csv_path):
     skill_list = list(input_df.columns[1:])
-    print(skill_list)
+    # print(skill_list)
     skills_result = []
+    skills_input = []
     for i in range(mtx.shape[0]):
         skills = [x for idx,x in enumerate(skill_list) if mtx[i,idx] == 1]
+        skills_input_row = [x for idx, x in enumerate(skill_list) if input_df.iloc[i, idx] == 1]
         skills_result.append(skills)
+        skills_input.append(skills_input_row)
     df = pd.DataFrame(range(1,len(skills_result)+1),columns=['id'])
-    print(df)
-    df['skills'] = skills_result
+    df["input_skills"] = skills_input
+    df['output_skills'] = skills_result
     df.to_csv(csv_path, index=False)
 
 temp_arr = output_name.split(".")
