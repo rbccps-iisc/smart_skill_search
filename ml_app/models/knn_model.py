@@ -1,7 +1,8 @@
+import joblib
 from sklearn.neighbors import NearestNeighbors
 import numpy as np
 from tqdm import tqdm
-
+import pandas as pd
 
 class KNNRecommender:
     def __init__(self, k=5, threshold=2):
@@ -9,7 +10,7 @@ class KNNRecommender:
         self.k = k
         self.threshold = threshold
 
-    def fit(self, X):
+    def fit(self, X: pd.DataFrame):
         self.model_knn.fit(X.values)
         self.X = X
 
@@ -25,6 +26,12 @@ class KNNRecommender:
         for row in tqdm(X.iterrows(), total=len(X)):
             batch.append(self.recommend(row[1]))
         return np.array(batch)
+
+    def save(self, filename):
+        joblib.dump(self, filename)
+
+    def load(self, filename):
+        self = joblib.load(filename)
 
 """
 TODO

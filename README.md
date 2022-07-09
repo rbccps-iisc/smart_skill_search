@@ -4,8 +4,9 @@
 
 - [ ] Models
     - [ ] KNN Recommender
-        - [ ] Single row prediction
+        - [x] Single row prediction
         - [x] batch prediction
-        - [ ] Lower the threshold for common skills
+        - [ ] Lower the threshold for most common skills
+    - [ ] Prepare script for evaluating the performance
 - [ ] Misc
-    - [ ] Convert the output Recommender batch prediction to csv file suitable for mongodb  
+    - [x] Convert the output Recommender batch prediction to csv file suitable for mongodb
