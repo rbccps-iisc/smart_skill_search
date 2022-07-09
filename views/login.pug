@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  div.text-center
+h1 Hi. This is Directive.
+    p
+      | AI based assistant of the HR
+      br
+      | &#x9;&#x9;&#x9;&#x9;We assist you search candidates based on skills and augment the results with ML.
+
+    form.form-signin(action='/search', method='post')
+      input.form-control(type='text', name='username', placeholder='Username')
+      input.form-control(type='password', name='password', placeholder='Password')
+
+
