@@ -1,11 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>SMART SEARCH</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link rel="stylesheet" href="assets/css/main.css" />
-    <script>
+doctype html
+head
+    meta(charset='UTF-8')
+    title SMART SEARCH
+    meta(name='viewport' content='width=device-width, initial-scale=1, user-scalable=no')
+    link(rel='stylesheet' href='assets/css/main.css')
+    script.
         var search_tags = {
             'Data Science': ['data model', 'medium', 'scikit learn', 'design', 'regular expression', 'algorithm', 'monitoring', 'predictive coding', 'segmentation', 'hadoop', 'parse', 'nlu', 'apache spark', 'tableau', 'testing', 'diagram', 'docker', 'twitter', 'random forest', 'business', 'dimensionality reduction', 'django', 'decision tree', 'visualization', 'engineering', 'ml', 'time series', 'github', 'jquery', 'software', 'bot', 'mysql', 'mobile', 'data processing', 'marketing', 'artificial intelligence', 'server', 'visual studio', 'segment', 'jupyter notebook', 'deep learning', 'data mining', 'logstash', 'elasticsearch', 'data analysis', 'machine learning', 'data visualization', 'emotion', 'outlier', 'finance', 'swift', 'sentiment analysis', 'numpy', 'electrical engineering', 'cluster analysis', 'library', 'support vector machine', 'object detection', 'oracle', 'eclipse', 'computer science', 'linux', 'git', 'natural language processing', 'deployment', 'bootstrap', 'selenium', 'flask', 'business intelligence', 'computer vision', 'javascript', 'kafka', 'analytics', 'programming language', 'nlp', 'framework', 'plotly', 'data science', 'angular', 'google', 'java', 'accounting', 'security', 'linear regression', 'operating system', 'database', 'kibana', 'support', 'data flow diagram', 'python', 'file format', 'documentation', 'logistic regression', 'feature selection', 'ubuntu', 'data structure', 'ai', 'specification', 'tensorflow'],
             'HR': ['ecommerce', 'computer science', 'java', 'finance', 'deployment', 'collision', 'accounting', 'schedule', 'software', 'certificate', 'engineering', 'database'],
@@ -48,71 +47,71 @@
                 }
             }
         }
-    </script>
+// Header
+#header
+    // span class="logo icon fa-user"></span
+    a(href='index.html')
+        img(src='images/sss.png')
+    h1 Welcome ARIN
+    p Your search ends here...
+// Main
+#main
+    header.major.container.medium
+        form#form1(name='form1' method='get' action='/search')
+            select#category(name='category')
+                option(value='' selected='selected') Select Category
+            br
+            br
+            select#skill(name='skill')
+                option(value='' selected='selected') Please select Category first
+            br
+            br
+            input(type='submit' value='Submit')
+            input(type='submit' formaction='/sm_search' value='smartsearch')
+    footer.major.container.medium
+        // img src="images/isometric.jpg" alt=""
+        - var responses = _id.length
+        //each candidate in _id
+        h4 total candidates with the skill &nbsp
+            b !{skill} &nbsp
+            | mentioned in the resume are &nbsp
+            b !{responses} &nbsp
 
-</head>
-<body class="is-preload">
+        h3 resume ids with &nbsp !{skill} &nbsp
+        h3
+        - for (var i=0; i<_id.length; i++){
+        | !{_id[i]} &nbsp
 
-    <!-- Header -->
-    <div id="header" >
-        <!--span class="logo icon fa-user"></span-->
-        <a href="index.html"><img src="images/sss.png"></a>
-        <h1>Welcome ARIN</h1>
-        <p>Your search ends here...  </p>
-        <!--img src="images/giphy.gif" height="40" width="40"-->
+        - }
+        //h3 !{_id}
 
-
-    </div>
-
-    <!-- Main -->
-    <div id="main">
-
-        <header class="major container medium">
-            <form name="form1" id="form1" method="get" action="/search">
-                <select name="category" id="category">
-                    <option value="" selected="selected">Select Category</option>
-                </select>
-                <br><br>
-                <select name="skill" id="skill">
-                    <option value="" selected="selected">Please select Category first</option>
-                </select>
-                <br><br>
-                <br><br>
-                <input type="submit" value="Submit"> <input type="submit" formaction="/sm_search" value="smartsearch">
-
-            </form>
-        </header>
-
-        <footer class="major container medium">
-            <!--img src="images/isometric.jpg" alt=""-->
-        </footer>
-    </div>
-    <!-- Footer -->
-
-    <div id="footer">
-        <div class="container medium">
-            <ul class="icons">
-                <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-                <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-                <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-                <li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
-                <li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
-            </ul>
-
-            <ul class="copyright">
-                <li>&copy; ARIN. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-            </ul>
-        </div>
-    </div>
-
-
-<!-- Scripts -->
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/browser.min.js"></script>
-<script src="assets/js/breakpoints.min.js"></script>
-<script src="assets/js/util.js"></script>
-<script src="assets/js/main.js"></script>
-
-
-</body>
-</html>
+// Footer
+#footer
+    .container.medium
+        ul.icons
+            li
+                a.icon.brands.fa-twitter(href='#')
+                    span.label Twitter
+            li
+                a.icon.brands.fa-facebook-f(href='#')
+                    span.label Facebook
+            li
+                a.icon.brands.fa-instagram(href='#')
+                    span.label Instagram
+            li
+                a.icon.brands.fa-github(href='#')
+                    span.label Github
+            li
+                a.icon.brands.fa-dribbble(href='#')
+                    span.label Dribbble
+        ul.copyright
+            li &copy; ARIN. All rights reserved.
+            li
+                | Design:
+                a(href='http://html5up.net') HTML5 UP
+// Scripts
+script(src='assets/js/jquery.min.js')
+script(src='assets/js/browser.min.js')
+script(src='assets/js/breakpoints.min.js')
+script(src='assets/js/util.js')
+script(src='assets/js/main.js')
